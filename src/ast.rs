@@ -1,10 +1,9 @@
 use std::fmt::Debug;
-use crate::ast::ast_node::{AstNode, Loop, NodeRef};
 
 pub mod ast_node;
 pub mod tokens;
 
-#[derive(Debug)]
+/*#[derive(Debug)]
 pub struct Ast<'a> {
     nodes: Vec<Box<dyn AstNode<'a>>>
 }
@@ -27,4 +26,4 @@ impl<'a> Ast<'a> {
     pub fn get(&self, index: usize) -> &Box<dyn AstNode> {
         &self.nodes[index]
     }
-}
+}*/
