@@ -1,12 +1,18 @@
+use std::rc::Rc;
 use std::fmt::Debug;
-use crate::ast::ast_node::AstNode::{Decrement, Loop, Output};
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug)]
+#[allow(dead_code)]
 pub enum AstNode {
-    Increment(Box<AstNode>),
-    Decrement(Box<AstNode>),
-    Output(Box<AstNode>),
-    Input(Box<AstNode>),
-    Loop(Box<AstNode>, Box<AstNode>),
-    None
+    Increment(Rc<AstNode>),
+    Decrement(Rc<AstNode>),
+    Toggle(Rc<AstNode>),
+    Output(Rc<AstNode>),
+    Input(Rc<AstNode>),
+    Loop(Rc<AstNode>, Rc<AstNode>),
+    Null
+}
+
+pub trait Visitor<T> {
+    fn visit(&mut self, n: &AstNode) -> T;
 }
